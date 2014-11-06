@@ -1,4 +1,4 @@
-FROM debian:jessy
+FROM debian:jessie
 MAINTAINER Thomas Fillon <thomas@parisson.com>
 
 RUN apt-get update --fix-missing
