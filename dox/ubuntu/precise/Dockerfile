@@ -2,7 +2,7 @@ FROM ubuntu:precise
 MAINTAINER Thomas Fillon <thomas@parisson.com>
 
 RUN apt-get update && \
-    apt-get upgrade && \
+    apt-get upgrade -y && \
     apt-get install -y \
     python \ 
     python-dev \
