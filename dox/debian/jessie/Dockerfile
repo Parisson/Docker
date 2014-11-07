@@ -36,7 +36,7 @@ RUN apt-get install -y \
 
 # Add Parisson packages repository for debian jessie and install Aubio, Yaafe
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key E3298399DF14BB7C && \
-    gpg -a --export E3298399DF14BB7C | sudo apt-key add - && \
+    gpg -a --export E3298399DF14BB7C | apt-key add - && \
     echo "deb http://debian.parisson.com/debian/ jessie main" | \
     tee -a /etc/apt/sources.list.d/parisson.list && \
     echo "deb-src http://debian.parisson.com/debian/ jessie main" | \
