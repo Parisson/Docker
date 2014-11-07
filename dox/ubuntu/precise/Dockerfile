@@ -40,6 +40,6 @@ RUN gpg --keyserver pgpkeys.mit.edu --recv-key E3298399DF14BB7C && \
     tee -a /etc/apt/sources.list.d/parisson.list && \
     echo "deb-src http://debian.parisson.com/debian/ precise main" | \
     tee -a /etc/apt/sources.list.d/parisson.list && \
-    apt-get update && apt-get install aubio yaafe python-aubio python-yaafe
+    apt-get update && apt-get install python-aubio python-yaafe
 
 
