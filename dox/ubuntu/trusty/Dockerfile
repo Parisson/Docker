@@ -37,7 +37,9 @@ RUN apt-get install -y \
 # Add Parisson packages repository for ubuntu trusty and install Aubio and Yaafe
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key E3298399DF14BB7C && \
     gpg -a --export E3298399DF14BB7C | sudo apt-key add - && \
-    echo "deb http://debian.parisson.com/debian/ trusty main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    echo "deb-src http://debian.parisson.com/debian/ trusty main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    apt-get install aubio yaafe python-aubio python-yaafe
+    echo "deb http://debian.parisson.com/debian/ trusty main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    echo "deb-src http://debian.parisson.com/debian/ trusty main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    apt-get update && apt-get install aubio yaafe python-aubio python-yaafe
 

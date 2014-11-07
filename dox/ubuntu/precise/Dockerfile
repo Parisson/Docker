@@ -26,19 +26,20 @@ RUN apt-get update && apt-get install -y \
 # Update setuptools
 RUN pip install -U setuptools
 
-# Add optionnal packages
+# Add optionnal packages (missing python-djangorestframework not available in precise)
 RUN apt-get install -y \
     vamp-examples \
     python-django \
     python-django-south \
-    python-djangorestframework \
     python-django-extensions
 
 # Add Parisson packages repository for ubuntu precise and install Aubio, Yaafe
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key E3298399DF14BB7C && \
     gpg -a --export E3298399DF14BB7C | sudo apt-key add - && \
-    echo "deb http://debian.parisson.com/debian/ precise main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    echo "deb-src http://debian.parisson.com/debian/ precise main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    apt-get install aubio yaafe python-aubio python-yaafe
+    echo "deb http://debian.parisson.com/debian/ precise main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    echo "deb-src http://debian.parisson.com/debian/ precise main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    apt-get update && apt-get install aubio yaafe python-aubio python-yaafe
 
 

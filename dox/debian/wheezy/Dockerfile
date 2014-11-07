@@ -26,20 +26,23 @@ RUN apt-get update && apt-get install -y \
 # Update setuptools
 RUN pip install -U setuptools
 
-# Add optionnal packages
+# Add optionnal packages (missing python-djangorestframework and python-django-extensions)
 RUN apt-get install -y \
     vamp-examples \
     python-django \
-    python-django-south \
-    python-djangorestframework \
-    python-django-extensions
+    python-django-south
+ 
 
 # Add Parisson packages repository for debian wheezy and install Aubio and Yaafe
 RUN gpg --keyserver pgpkeys.mit.edu --recv-key E3298399DF14BB7C && \
     gpg -a --export E3298399DF14BB7C | sudo apt-key add - && \
-    echo "deb http://http.debian.net/debian/ wheezy-backports main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    echo "deb-src http://http.debian.net/debian/ wheezy-backports main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    echo "deb http://debian.parisson.com/debian/ wheezy main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    echo "deb-src http://debian.parisson.com/debian/ wheezy main" | sudo tee -a /etc/apt/sources.list.d/parisson.list && \
-    apt-get install aubio yaafe python-aubio python-yaafe
+    echo "deb http://http.debian.net/debian/ wheezy-backports main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    echo "deb-src http://http.debian.net/debian/ wheezy-backports main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    echo "deb http://debian.parisson.com/debian/ wheezy main" | \
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    echo "deb-src http://debian.parisson.com/debian/ wheezy main" | 
+    tee -a /etc/apt/sources.list.d/parisson.list && \
+    apt-get update && apt-get install aubio yaafe python-aubio python-yaafe
 
