@@ -1,7 +1,9 @@
 FROM ubuntu:precise
 MAINTAINER Thomas Fillon <thomas@parisson.com>
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && \
+    apt-get upgrade && \
+    apt-get install -y \
     python \ 
     python-dev \
     python-pip \ 
