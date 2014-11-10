@@ -27,4 +27,4 @@ RUN apt-get update && \
 
 # Update setuptools and pip, install virutalenv
 RUN pip install -U setuptools && \
-    pip && pip install -U virtualenv
+    pip install -U virtualenv
