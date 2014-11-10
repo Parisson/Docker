@@ -25,5 +25,5 @@ RUN apt-get update && \
     gstreamer0.10-plugins-ugly \
     gstreamer0.10-alsa
 
-# Update setuptools
-RUN pip install -U setuptools
+# Update setuptools and pip, install virutalenv
+RUN pip install -U setuptools && pip install -U pip && pip install -U virtualenv
