@@ -26,4 +26,5 @@ RUN apt-get update && \
     gstreamer0.10-alsa
 
 # Update setuptools and pip, install virutalenv
-RUN pip install -U setuptools && pip install -U pip && pip install -U virtualenv
+RUN pip install -U setuptools && \
+    pip && pip install -U virtualenv

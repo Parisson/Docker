@@ -23,8 +23,9 @@ RUN apt-get update && apt-get install -y \
     gstreamer0.10-plugins-ugly \
     gstreamer0.10-alsa
 
-# Update setuptools and pip, install virutalenv
-RUN pip install -U setuptools && pip install -U pip && pip install -U virtualenv
+# Update setuptools and install virutalenv
+RUN pip install -U setuptools && \
+    pip install -U virtualenv
 
 
 # Add optionnal packages (missing python-djangorestframework and python-django-extensions)
