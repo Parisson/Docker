@@ -2,12 +2,13 @@ FROM ubuntu:precise
 MAINTAINER Thomas Fillon <thomas@parisson.com>
 
 # Install python-software-properties to get 'add-apt-repository' and 'lsb_release' utilities
-RUN apt-get install -y python-software-properties
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y python-software-properties
 
 # Install TimeSide dependencies
 RUN add-apt-repository -y ppa:donk/gstreamer && \
     apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y \
     python \ 
     python-dev \
