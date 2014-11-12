@@ -1,7 +1,8 @@
 FROM ubuntu:precise
 MAINTAINER Thomas Fillon <thomas@parisson.com>
 
-RUN apt-get update && \
+RUN add-apt-repository -y ppa:donk/gstreamer && \
+    apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
     python \ 
