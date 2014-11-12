@@ -2,6 +2,7 @@ FROM debian:wheezy
 MAINTAINER Thomas Fillon <thomas@parisson.com>
 
 RUN apt-get update && apt-get install -y \
+    lsb-release \
     python \ 
     python-dev \
     python-pip \ 
