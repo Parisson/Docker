@@ -16,18 +16,18 @@ FROM debian:jessie
 
 MAINTAINER Guillaume Pellerin <yomguy@parisson.com>, Thomas fillon <thomas@parisson.com>
 
-RUN mkdir /srv/src/base_image
-WORKDIR /srv/src/base_image
+
 
 # install confs, keys and deps
-COPY debian-requirements.txt /srv/src/timeside/
+COPY debian-requirements.txt /
 
 RUN echo 'deb http://debian.parisson.com/debian/ jessie main' > /etc/apt/sources.list.d/parisson.list && \
     apt-get update && \
     DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" debian-requirements.txt) && \
     apt-get install -y --force-yes $DEBIAN_PACKAGES && \
     apt-get install -y --force-yes python-yaafe  && \
-    apt-get clean
+    apt-get clean && \
+    rm debian-requirements.txt
 
 # Install conda in /opt/miniconda
 ENV PATH /opt/miniconda/bin:$PATH
@@ -39,9 +39,9 @@ RUN wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O 
     conda update -q conda
 
 # Install binary dependencies with conda
-COPY environment.yml /srv/src/base_image/
-RUN conda config --add channels piem &&\
-    conda env update --name root --file environment.yml
+COPY environment.yml /
+RUN conda env create --file environment.yml && \
+    rm environment.yml
 
 # Link Yaafe in site-packages
 RUN ln -s /usr/lib/python2.7/dist-packages/yaafelib /opt/miniconda/lib/python2.7
@@ -49,6 +49,4 @@ RUN ln -s /usr/lib/python2.7/dist-packages/yaafelib /opt/miniconda/lib/python2.7
 # Install bower
 RUN npm install -g bower
 
-# Install uwsgi
-RUN pip install uwsgi
 
