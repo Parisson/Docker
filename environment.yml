@@ -1,6 +1,7 @@
 name: base
 channels:
   - piem
+  - yaafe
 dependencies:
   - aubio  # in piem channel (optionnal)
   - h5py
@@ -16,6 +17,7 @@ dependencies:
   - pytables  # named tables in Pypi ... 
   - traits
   - Werkzeug
+  - yaafe
   - pip:
       - django-angular
       - django-bootstrap-pagination
