@@ -1,4 +1,4 @@
-name: base
+name: root
 channels:
   - piem
   - yaafe

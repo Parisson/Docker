@@ -38,7 +38,7 @@ RUN wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O 
 
 # Install binary dependencies with conda
 COPY environment.yml /
-RUN conda env create --file environment.yml && \
+RUN conda env update --name root --file environment.yml && \
     conda clean --all --yes  && \
     rm environment.yml
 
