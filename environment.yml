@@ -19,6 +19,7 @@ dependencies:
   - Werkzeug
   - yaafe
   - pip:
+      - celery<4.0
       - django-angular
       - django-bootstrap-pagination
       - django-bootstrap3
