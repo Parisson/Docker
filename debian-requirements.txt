@@ -11,8 +11,8 @@ vamp-examples
 # from http://debian.parisson.com/debian/
 #python-yaafe
 
-# Misc. 
-gettext  # for managing Django translations
+# Misc.
+gettext
 git
 wget
 bzip2
