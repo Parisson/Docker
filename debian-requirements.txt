@@ -12,6 +12,7 @@ vamp-examples
 #python-yaafe
 
 # Misc. 
+gettext  # for managing Django translations
 git
 wget
 bzip2
