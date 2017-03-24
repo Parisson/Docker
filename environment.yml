@@ -1,8 +1,8 @@
 name: base
 channels:
-  - piem
+  - conda-forge
 dependencies:
-  - aubio  # in piem channel (optionnal)
+  - aubio=4.2  # in conda-forge channel (optionnal)
   - h5py
   - matplotlib
   - networkx
