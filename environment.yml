@@ -2,7 +2,7 @@ name: base
 channels:
   - conda-forge
 dependencies:
-  - aubio=4.2  # in conda-forge channel (optionnal)
+  - aubio  # in conda-forge channel (optionnal)
   - h5py
   - matplotlib
   - networkx
