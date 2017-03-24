@@ -1,9 +1,9 @@
 name: root
 channels:
-  - piem
+  - conda-forge
   - yaafe
 dependencies:
-  - aubio  # in piem channel (optionnal)
+  - aubio  # in conda-forge channel (optionnal)
   - h5py
   - matplotlib
   - networkx
@@ -14,7 +14,9 @@ dependencies:
   - redis
   - scipy
   - simplejson
-  - pytables  # named tables in Pypi ... 
+  - pandas
+  - pytables  # named tables in Pypi ...
+  - scikit-learn
   - traits
   - Werkzeug
   - yaafe
