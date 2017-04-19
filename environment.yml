@@ -1,9 +1,11 @@
-name: base
+name: root
 channels:
   - conda-forge
 dependencies:
   - aubio  # in conda-forge channel (optionnal)
   - h5py
+  - ipython
+  - jupyter
   - matplotlib
   - networkx
   - numpy
@@ -13,10 +15,14 @@ dependencies:
   - redis
   - scipy
   - simplejson
-  - pytables  # named tables in Pypi ... 
+  - pandas
+  - pytables  # named tables in Pypi ...
+  - scikit-learn
   - traits
   - Werkzeug
+  - yaafe
   - pip:
+      - celery<4.0
       - django-angular
       - django-bootstrap-pagination
       - django-bootstrap3

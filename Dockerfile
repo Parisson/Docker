@@ -21,11 +21,9 @@ MAINTAINER Guillaume Pellerin <yomguy@parisson.com>, Thomas fillon <thomas@paris
 # install confs, keys and deps
 COPY debian-requirements.txt /
 
-RUN echo 'deb http://debian.parisson.com/debian/ jessie main' > /etc/apt/sources.list.d/parisson.list && \
-    apt-get update && \
+RUN apt-get update && \
     DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" debian-requirements.txt) && \
     apt-get install -y --force-yes $DEBIAN_PACKAGES && \
-    apt-get install -y --force-yes python-yaafe  && \
     apt-get clean && \
     rm debian-requirements.txt
 
@@ -40,13 +38,13 @@ RUN wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O 
 
 # Install binary dependencies with conda
 COPY environment.yml /
-RUN conda env create --file environment.yml && \
+RUN conda env update --name root --file environment.yml && \
+    conda clean --all --yes  && \
     rm environment.yml
 
-# Link Yaafe in site-packages
-RUN ln -s /usr/lib/python2.7/dist-packages/yaafelib /opt/miniconda/lib/python2.7
+COPY link_gstreamer.py /
+RUN python link_gstreamer.py
 
 # Install bower
 RUN npm install -g bower
-
 

@@ -1,0 +1,17 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.5.2
+
+install:
+  - docker build -t parisson-base .
+
+
+script:
+  - docker run parisson-base yaafe -l
+  - docker run parisson-base aubio pitch -h

@@ -21,5 +21,6 @@ netcat
 
 # DB & Server
 npm
+mysql-client
 libmysqlclient-dev
 nodejs-legacy
