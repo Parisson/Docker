@@ -42,7 +42,9 @@ RUN conda env update --name root --file environment.yml && \
     conda clean --all --yes  && \
     rm environment.yml
 
+COPY link_gstreamer.py /
+RUN python link_gstreamer.py
+
 # Install bower
 RUN npm install -g bower
-
 

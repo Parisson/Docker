@@ -1,10 +1,11 @@
 name: root
 channels:
   - conda-forge
-  - yaafe
 dependencies:
   - aubio  # in conda-forge channel (optionnal)
   - h5py
+  - ipython
+  - jupyter
   - matplotlib
   - networkx
   - numpy
