@@ -1,4 +1,4 @@
-# Copyright 2015, 2016 Guillaume Pellerin, Thomas Fillon
+# Copyright 2015, 2018 Guillaume Pellerin, Thomas Fillon
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
