@@ -29,7 +29,7 @@ RUN apt-get update && \
 
 # Install conda in /opt/miniconda
 ENV PATH /opt/miniconda/bin:$PATH
-RUN wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh && \
+RUN wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash miniconda.sh -b -p /opt/miniconda && \
     rm miniconda.sh && \
     hash -r && \

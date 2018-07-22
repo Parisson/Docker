@@ -18,6 +18,7 @@ wget
 bzip2
 build-essential
 netcat
+apt-transport-https
 
 # DB & Server
 npm
